@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            height: 100dvh;
+            display: flex;
+            justify-content: center; 
+        }
+        .side {
+            height: 100%;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            overflow: hidden;
+            &.light {
+                left: 0;
+                background-color: #f4f0f4;
+            }
+            &.dark {
+                right: 0;
+                background-color: #0c8a8e;
+            }
+        }
+        .wrapper {
+            position: absolute;
+            height: 100%;
+            max-height: 300px;
+            aspect-ratio: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 100px;
+            &>.rotisory {
+                width: 100%;
+                height: 100%;
+                border-radius: 9999rem;
+                transform-style: 
+                  preserve-3d;
+                animation: rotate 10s
+                linear infinite;  
+            }
+            &.left {
+                transform: translateX(50%);
+                right: 0;
+            }
+            &.right {
+                transform: translateX(50%)
+                ;
+                left: 0;
+            }
+            &.left>.rotisory {
+                background-color: #0c8a8e;
+            }
+            &.right>.rotisory {
+                background-color: #f4f0f4;
+            }
+        }
+        @keyframes rotate {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="side light">
+      <div class="wrapper left">
+         <div class="rotisory"></div>
+      </div>
+    </div>
+    <div class="side dark">
+        <div class="wrapper right">
+          <div class="rotisory"></div>
+        </div>
+    </div>
+</body>
+</html>
