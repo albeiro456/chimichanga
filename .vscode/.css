@@ -1,0 +1,9 @@
+.card-content > .title {
+    margin-left: 10px;
+    translate: 0 100%;
+    opacity: 0;
+}
+.card:hover .title {
+    opacity: 1;
+    translate: 0 0;
+}
